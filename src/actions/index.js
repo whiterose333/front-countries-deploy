@@ -1,20 +1,27 @@
 import axios from 'axios';
-
+const baseUrl = "http://localhost:3003/"
 export function getCountries(){
     return async function(dispatch){
-        var json = await axios.get("https://countries-deploy.herokuapp.com/countries",{
-
-        });
-        return dispatch({
-            type: "GET_COUNTRIES",
-            payload: json.data
-        })
+        try {
+            var json = await axios.get(baseUrl + "countries",{
+    
+            });
+            return dispatch({
+                type: "GET_COUNTRIES",
+                payload: json.data
+            })
+        
+        } catch (error) {
+            alert("countries App not found!!")
+            console.log(error)
+        }
     }
+    
 }
 
 export function getByActivity(){
     return async function(dispatch){
-        var json = await axios.get("https://countries-deploy.herokuapp.com/actividades",{
+        var json = await axios.get(baseUrl + "actividades",{
 
         });
         return dispatch({
@@ -27,7 +34,7 @@ export function getByActivity(){
 export function getNameCountries(name){
     return async function(dispatch){
         try {
-            var json = await axios.get( "https://countries-deploy.herokuapp.com/countries?name=" + name);
+            var json = await axios.get( baseUrl + "countries?name=" + name);
             return dispatch ({
                 type: "GET_NAME_COUNTRIES",
                 payload: json.data
@@ -42,7 +49,7 @@ export function getNameCountries(name){
 export function filterCountriesByActivity(name){
     return async function(dispatch){
         try {
-            var json = await axios.get( "https://countries-deploy.herokuapp.com/activities?name=" + name);
+            var json = await axios.get( baseUrl + "activities?name=" + name);
             return dispatch ({
                 type: "GET_ACTIVITY_COUNTRIES",
                 payload: json.data
@@ -56,7 +63,7 @@ export function filterCountriesByActivity(name){
 export function getNameActivity(name){
     return async function(dispatch){
         try {
-            var json = await axios.get( "https://countries-deploy.herokuapp.com/activities?name=" + name);
+            var json = await axios.get( baseUrl + "activities?name=" + name);
             return dispatch ({
                 type: "GET_NAME_ACTIVITY",
                 payload: json.data
@@ -80,7 +87,7 @@ export function getNameActivity(name){
 
 export function postActivity(payload){
     return async function(dispatch){
-            const res = await axios.post( "https://countries-deploy.herokuapp.com/activity",payload)
+            const res = await axios.post( baseUrl + "activity",payload)
             return res; 
         }
 }
@@ -116,7 +123,7 @@ export function orderByName(payload){
 export function findDetail(id){
     return async function(dispatch){
         try{
-            var json =await axios.get("https://countries-deploy.herokuapp.com/countries/" + id);
+            var json =await axios.get(baseUrl + "countries/" + id);
             return dispatch({
                 type: "FIND_DETAIL",
                 payload: json.data
