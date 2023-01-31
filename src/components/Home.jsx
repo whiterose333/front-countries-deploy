@@ -5,9 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCountries, findByContinents, findPopulation, orderByName, getByActivity, filterCountriesByActivity } from '../actions';
 import Country from './Country';
 import SearchBar from './SearchBar';
+import Navbar from './Navbar';
+/* import Nav from './Nav'; */
 import InputActivity from './InputActivity';
 import Paginado from './paginado';
 import styles from "./home.module.css"
+import banner from "../assets/landing3.jpg"
 
 export default function Home() {
     const dispatch = useDispatch();
@@ -45,10 +48,10 @@ export default function Home() {
         dispatch(getCountries());
     }, [dispatch])
 
-    function handleClick(e) {
+    /* function handleClick(e) {
         e.preventDefault();
         dispatch(getCountries());
-    }
+    } */
 
 
     function handleFindByContinent(e) {
@@ -76,13 +79,39 @@ export default function Home() {
 
     return (
         <div className={styles.home}>
-
-            <div className={styles.titulo}>
-                <h1>COUNTRIES OF THE WORLD</h1>
-                <button className={styles.btn}><Link to="/activity">Crear actividad turística</Link></button>
-                <button className={styles.btn} onClick={e => { handleClick(e) }}>volver a cargar los paises</button>
+            <div>
+                {/* <Nav/> */}
+                {<Navbar />}
             </div>
+            <div className={styles.banner}>
+                {/* <img src={banner} alt="" /> */}
+                <h1>+ de 200 paises de todo el mundo</h1>
+                {/* <h1>hghgfhhghgfghgf</h1>
+                <h1>asdaDASFSAFSADFSADFSADFSADFSADF</h1>
+                <h1>SDFSADFASDFSADF</h1>
+                <h1>SDFSADFASDFSADF</h1>
+                <h1>SDFSADFASDFSADF</h1>
+                <h1>SDFSADFASDFSADF</h1> */}
 
+            </div>
+            {/* <div className={styles.navbar}>
+                <div className={styles.titulo}>
+                    <h3>COUNTRIES </h3>
+                    <h5 className={styles.app}>app</h5>
+                </div>
+                <div>
+                <Link className={styles.link} to="/activity">Crear actividad turística</Link>
+
+                </div>
+                <div>
+                   
+                    <Link className={styles.link} onClick={e => { handleClick(e) }}>volver a cargar los paises</Link>
+
+                </div>
+                <div>
+                    <SearchBar />
+                </div>
+            </div> */}
             <div className={styles.filtros}>
                 {/* <label>order alphabetically</label> */}
                 <div className={styles.divSelect}>
@@ -146,7 +175,10 @@ export default function Home() {
                     </select>
                 </div>
             </div>
-            <SearchBar />
+            <div>
+                <SearchBar />
+            </div>
+
             <div className={styles.gridContainer}>
 
                 {
