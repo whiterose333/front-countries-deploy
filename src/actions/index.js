@@ -1,4 +1,5 @@
 import axios from 'axios';
+<<<<<<< HEAD
 const baseUrl = "http://localhost:3003/"
 export function getCountries(){
     return async function(dispatch){
@@ -15,6 +16,19 @@ export function getCountries(){
             alert("countries App not found!!")
             console.log(error)
         }
+=======
+const baseUrl = "https://demo-api-production-e828.up.railway.app/"
+
+export function getCountries(){
+    return async function(dispatch){
+        var json = await axios.get(baseUrl + "countries",{
+
+        });
+        return dispatch({
+            type: "GET_COUNTRIES",
+            payload: json.data
+        })
+>>>>>>> 7463a00e570f73b74cd803726ed458850f40dd38
     }
     
 }
