@@ -27,6 +27,31 @@
 }
 
 .btn {
+    padding: 0px 10px;
+    border: none;
+    outline: none;
+    height: 2rem;
+    width: 50%;
+    background: transparent;
+    color:rgba(255, 255, 255, 0.64);
+    font-size: 13px;
+    border-style:groove;
+    border-width: 1px;
+    border-color:rgba(255, 255, 255, 0.64);
+    border-radius: 1px;
+    transition: all 0.5s ease;
+  }
+  
+  
+  
+  .btn:hover {
+    background-color: rgb(2, 125, 115);
+    border-color:rgb(255, 255, 255);
+    cursor: pointer;
+    transform: scale(1.09);
+  }
+
+/* .btn {
   
     background-color:#0dcad8;
      border-radius:42px; 
@@ -42,5 +67,26 @@
     cursor: pointer;
     box-shadow: 16px 16px 22px rgba(110,210,244,.64);
     text-shadow: 0px 0px 5px rgba(66,66,66,.75);
+} */
+
+.container {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    width: 50%;
+    padding: 2rem;
+    flex-direction: column;
+}
+.eslogan {
+    color:#ffffff;
+    font-size: 3rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-align: start;
 }
 
+/* .enfasis {
+    color:aqua;
+    font-size: 1rem;
+} */
