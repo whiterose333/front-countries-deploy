@@ -8,14 +8,18 @@ export default function LandingPage() {
         <div className={styles.cou}>
             <Navbar />
             <div className={styles.container}>
-                <h1 className={styles.eslogan}>Planear tus proximos destinos, es el primer paso para hacerlo realidad</h1>
-                <button className={styles.btn}>Empezar</button>
 
-            </div>
-            {/* <h1>¡ Welcome to the world !</h1>
+                <div className={styles.container}>
+                    <h1 className={styles.eslogan}>Planear tus proximos destinos, es el primer paso para hacerlo realidad</h1>
+                    <Link className={styles.link} to="/home">
+                        <button className={styles.btn}>Empezar</button>
+                    </Link>
+                </div>
+                {/* <h1>¡ Welcome to the world !</h1>
             <Link to ='/home'>
-                <button className={styles.btn}>get in</button>
-            </Link> */}
+            <button className={styles.btn}>get in</button>
+        </Link> */}
+            </div>
         </div>
     )
 }
