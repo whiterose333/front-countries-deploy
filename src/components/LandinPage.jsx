@@ -7,7 +7,7 @@ export default function LandingPage() {
     return (
         <div className={styles.cou}>
             <Navbar />
-            <div className={styles.container}>
+            {/* <div className={styles.container}> */}
 
                 <div className={styles.container}>
                     <h1 className={styles.eslogan}>Planear tus proximos destinos, es el primer paso para hacerlo realidad</h1>
@@ -19,7 +19,7 @@ export default function LandingPage() {
             <Link to ='/home'>
             <button className={styles.btn}>get in</button>
         </Link> */}
-            </div>
+            {/* </div> */}
         </div>
     )
 }

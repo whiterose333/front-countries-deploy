@@ -37,14 +37,14 @@ export default function Navbar() {
             </div>
 
             <div className={styles.linkContainer} id="linkcontainer">
-                <Link className={styles.link} to="/activity">Crear actividad turística</Link>
+                <Link className={styles.link} to="/activity">Crear actividad</Link>
 
             </div>
 
 
             <div className={styles.linkContainer} id="linkcontainer">
                 {/* <button className={styles.btn}  onClick={e => { handleClick(e) }}>volver a cargar los paises</button> */}
-                <Link className={styles.link} onClick={e => { handleClick(e) }}>volver a cargar los paises</Link>
+                <Link className={styles.link} onClick={e => { handleClick(e) }}>Recargar</Link>
             </div>
             {
                 !toggle ?

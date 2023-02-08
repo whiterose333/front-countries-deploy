@@ -22,17 +22,68 @@
 }
 
 .link {
+  
   display: flex;
   color: #ffffff;
   font-size: 13px;
-  padding: 5px;
+  padding: 0px;
   text-decoration: none;
   transition: all 0.5s ease;
+
+position: absolute;
+
+  
+}
+
+.link::after {
+  content: "";
+  border-bottom: 3px solid #23dee8;
+  border-width: 0%;
+  transition: 0.5s;
+  position: absolute;
+  
+
+
+  top:120%;
+  left: 50%;
+  right: 50%;
+  width: 0%;
+ 
+ 
+  
+
+}
+
+.link:hover::after {
+ /*  color: #23dee8;
+  
+  position: absolute;
+  border-left: 5px solid chocolate;
+  border-bottom: 5px solid chocolate;
+  border-width: 100%; */
+
+
+
+
+  /* border-bottom: 2px  solid #23dee8;
+ border-bottom-left-radius: 0.5rem;
+ border-bottom-right-radius: 0.5rem; */
+ border-bottom-left-radius: 0.5rem;
+ border-bottom-right-radius: 0.5rem;
+  left: 0%;
+  right: 0%; 
+  width: 100%;
+
+  
 }
 
 .link:hover {
-  color: #23dee8;
+    color: #23dee8;
 }
+
+
+
+
 
 .toggle {
   /*  background-color: #ffe600; */
@@ -55,6 +106,8 @@
 
 .linkContainer {
 width: 100%;
+
+  
 /* transition: all 0.5s ease; */
 
 }
@@ -107,7 +160,7 @@ width: 100%;
     align-items: center;
     width: 100%;
     background-color: #0e0e0e;
-    padding: 10px;
+    padding: 10px 0px;
   }
 
   .linkResponsive:hover {
