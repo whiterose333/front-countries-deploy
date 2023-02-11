@@ -62,8 +62,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   justify-content: center;
-  padding: 5px;
-  box-shadow: 1px 0px 22px rgba(110, 210, 244, .64);
+  padding: 2rem;
+  /* box-shadow: 1px 0px 22px rgba(110, 210, 244, .64); */
   text-shadow: 0px 0px 5px rgba(66, 66, 66, .75);
   /* justify-items: right;
     display:flex;
@@ -96,18 +96,40 @@
 }
 
 .pais {
-  width: 230px;
-  height: 30vh;
+  width: 15rem;
+  height: 32vh;
+  padding-top: 0.3rem;
   backdrop-filter: blur(16px);
-  background-color: rgba(0, 0, 255, 0.068);
-  border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 0.07);
+  border-radius: 0.5rem;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: rgb(131, 206, 241);
+  color: rgb(255, 255, 255);
   cursor: pointer;
-  box-shadow: 1px 0px 22px rgba(110, 210, 244, .64);
+  /* box-shadow: 1px 0px 22px rgba(110, 210, 244, .64); */
   text-shadow: 0px 0px 5px rgba(66, 66, 66, .75);
+  text-decoration: none;
+  transition: all 0.5s ease-in;
+ /*  position: absolute; */
+  /* border-bottom: 3px solid #23dee8; */
 
 }
+
+
+
+.pais:hover {
+  background-color: rgba(255, 255, 255, 0.208);
+  border-color:rgb(255, 255, 255);
+  cursor: pointer;
+  transform: scale(1.09);
+  
+}
+
+.bandera {
+  border-radius: 1rem;
+ 
+}
+
+
 
 .titulo {
   /* position: cover;
@@ -229,7 +251,12 @@
   align-items: center;
   /* height: 300px; */
   /* border: 1px solid black; */
+ 
 }
+
+
+
+
 
 .banner {
   padding: 2rem;
@@ -240,8 +267,42 @@
   background-repeat: no-repeat;
   background-position: top;
   display: flex;
-  justify-content: start;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  font-size: 2rem;
   color: #ffffff;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.btnBanner {
+  padding: 0px 20px;
+  border: none;
+  outline: none;
+  height: 2rem;
+  width: 100%;
+  background-color: #1eb9c1;
+  color:rgb(255, 255, 255);
+  font-size: 13px;
+  font-weight: bold;
+  border-style:groove;
+  border-width: 1px;
+  border-color:rgba(255, 255, 255, 0.64);
+  border-radius: 1px;
+  transition: all 0.5s ease;
+}
+
+
+
+.btnBanner:hover {
+  background-color:#23dee8;
+  border-color:rgb(255, 255, 255);
+  cursor: pointer;
+  transform: scale(1.09);
+}
+
+@media (max-width:600px) {
+  .banner{
+    font-size: 1rem;
+  }
 }

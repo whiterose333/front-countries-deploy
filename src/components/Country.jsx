@@ -7,7 +7,7 @@ export default function Country({ image, name, continent }){
         <div className={styles.pais}>
             <h3>{name}</h3>
             <h5>{continent}</h5>
-            <img src={image} height= "100rem" alt="image not found" />
+            <img className={styles.bandera} src={image} height= "100rem" alt="image not found" />
         </div>
     )
 }

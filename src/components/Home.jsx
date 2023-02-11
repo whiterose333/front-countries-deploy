@@ -85,7 +85,15 @@ export default function Home() {
             </div>
             <div className={styles.banner}>
                 {/* <img src={banner} alt="" /> */}
-                <h1>+ de 200 paises de todo el mundo</h1>
+                <div className={styles.textBanner}>
+                    <h1>+ de 200 paises de todo el mundo</h1>
+                    <p>Planea y agrega tus actividades deseadas en tus destinos soñados !</p>
+                </div>
+                <div>
+                    <Link className={styles.link} to="/activity">
+                        <button className={styles.btnBanner}>Crear Actividad</button>
+                    </Link>
+                </div>
                 {/* <h1>hghgfhhghgfghgf</h1>
                 <h1>asdaDASFSAFSADFSADFSADFSADFSADF</h1>
                 <h1>SDFSADFASDFSADF</h1>
@@ -185,7 +193,7 @@ export default function Home() {
                     actualCountries && actualCountries.map(e => {
                         return (
                             <div className={styles.country}>
-                                <Link to={"/home/" + e.id}>
+                                <Link style={{ textDecoration:'none'}} to={"/home/" + e.id}>
                                     <Country name={e.name} image={e.image} continent={e.continent} key={e.id} />
                                 </Link>
                             </div>
