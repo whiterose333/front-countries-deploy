@@ -46,6 +46,8 @@ export default function Home() {
 
     useEffect(() => {
         dispatch(getCountries());
+        dispatch(getByActivity());
+        console.log("activities", allActivities)
     }, [dispatch])
 
     /* function handleClick(e) {

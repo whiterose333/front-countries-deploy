@@ -97,8 +97,9 @@
 
 .pais {
   width: 15rem;
-  height: 32vh;
+  height: 220px;
   padding-top: 0.3rem;
+  margin:0.5rem;
   backdrop-filter: blur(16px);
   background-color: rgba(255, 255, 255, 0.07);
   border-radius: 0.5rem;

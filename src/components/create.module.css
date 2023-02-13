@@ -78,8 +78,11 @@
 
 
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 40%;
-  height: 400px;
+  height: 520px;
   background: #000;
   color: #fff;
   top: 55%;
@@ -87,7 +90,7 @@
   position:absolute;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
-  padding: 70px 30px;
+  padding: 70px 20px;
 }
 
 
@@ -149,14 +152,14 @@
   background-color: #1eb9c1;
    margin: 10px;    
    font-size: 15px;
-   padding: 5px;
+   padding: 5px 20px;
    text-align: center;
    transition: 0.5s;     
    color: #FFF;
   
    border-radius: 10px;    
    
-   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+   transition: all 0.5s cubic-bezier(.25,.8,.25,1);
    cursor: pointer;
    display: inline-block;
    border-radius: 5px;
@@ -165,6 +168,7 @@
 .btn:hover{
   color: #ffffff;
   background-color:#23dee8;
+  transform: scale(1.09);
 }
 
 .errors{
@@ -212,6 +216,51 @@
 .boton_deleted:hover{
   background: rgb(195, 0, 0);
   
+}
+
+.sel {
+
+  background-color: transparent;
+  width: 230px;
+  /* border-radius:42px; */
+  display: inline-block;
+  cursor: pointer;
+  color: #23dee8;
+  font-family: Verdana;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+  /* padding:5px 25px; */
+}
+
+.detail {
+  margin:5px;
+}
+
+.countries {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+}
+
+.country {
+  background-color: rgba(255, 255, 255, 0.07);
+  display: flex;
+  font-size: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px 5px;
+  border-radius: 2px;
+}
+
+.btnDelete{
+  height: 15px;
+  width: 15px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin: 5px;
 }
 
 @media (max-width:600px) {

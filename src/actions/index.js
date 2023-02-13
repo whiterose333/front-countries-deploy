@@ -1,5 +1,6 @@
 import axios from 'axios';
 const baseUrl = "https://demo-api-production-e828.up.railway.app/"
+/* const baseUrl = "http://localhost:3003/" */
 
 export function getCountries(){
     return async function(dispatch){

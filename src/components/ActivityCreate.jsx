@@ -12,8 +12,11 @@ function validate(input) {
     let error = {};
     if (!input.name) {
         error.name = 'a name is required'
-    } if (!input.duration) {
+    }
+    if (!input.duration) {
         error.duration = 'a duration is required'
+    } if (input.duration > 1000) {
+        error.duration = 'duracion excesiva'
     }
     return error;
 }
@@ -49,9 +52,12 @@ export default function ActivityCreate() {
 
     useEffect(() => {
         dispatch(getCountries())
+
     }, []);
 
     function handleOnChange(e) {
+        console.log(e)
+        /* if(e.target.name === cou) */
         setInput({
             ...input,
             [e.target.name]: e.target.value
@@ -64,15 +70,18 @@ export default function ActivityCreate() {
     }
 
     function handleSelect(e) {
-        setInput({
-            ...input,
-            //country: e.target.value
-            country: [...input.country, e.target.value]
-        })
-        setErrors(validateCountry({
-            ...input,
-            country: [...input.country, e.target.value]
-        }))
+        if (!input.country.includes(e.target.value)) {
+
+            setInput({
+                ...input,
+                //country: e.target.value
+                country: [...input.country, e.target.value]
+            })
+            setErrors(validateCountry({
+                ...input,
+                country: [...input.country, e.target.value]
+            }))
+        }
 
     }
 
@@ -119,21 +128,22 @@ export default function ActivityCreate() {
 
     return (
         <div className={styles.form}>
-            <Navbar/>
+            <Navbar />
             {/* <Link className={styles.btn} to='/home'><button>Back</button></Link> */}
             {/* <h1>Add a new activity</h1> */}
             <div className={styles.container}>
                 <form onSubmit={(e) => handleSubmit(e)}>
-                    <div>
+                    <div className={styles.detail}>
                         <label className={styles.label}>NAME:</label>
-                        <input className={styles.input} type="text" value={input.name} name="name" onChange={(e) => handleOnChange(e)} />
                         {error.name && (
-                            <p>{error.name}</p>
+                            <p className={styles.errors}>{error.name}</p>
                         )}
+                        <input className={styles.input} type="text" value={input.name} name="name" onChange={(e) => handleOnChange(e)} />
+
                     </div>
-                    <div>
-                         <label className={styles.label}>DIFFICULTY:</label>
-                        <select className={styles.select} onChange={(e) => handleSelectD(e)}>
+                    <div className={styles.detail}>
+                        {/*  <label className={styles.label}>DIFFICULTY:</label> */}
+                        <select className={styles.sel} onChange={(e) => handleSelectD(e)}>
                             <option id='dif' disabled hidden selected='select'>DIFFICULTY...</option>
                             <option value='1'>1</option>
                             <option value='2'>2</option>
@@ -141,18 +151,19 @@ export default function ActivityCreate() {
                             <option value='4'>4</option>
                             <option value='5'>5</option>
                         </select>
-                        
+
                     </div>
-                    <div>
+                    <div className={styles.detail}>
                         <label className={styles.label}>DURATION:</label>
-                        <input className={styles.input} type="text" value={input.duration} name="duration" onChange={(e) => handleOnChange(e)} />
                         {error.duration && (
-                            <p>{error.duration}</p>
+                            <p className={styles.errors}>{error.duration}</p>
                         )}
+                        <input className={styles.input} type="text" value={input.duration} name="duration" onChange={(e) => handleOnChange(e)} />
+
                     </div>
-                    <div>
+                    <div className={styles.detail}>
                         {/* <label>SEASON:</label> */}
-                        <select className={styles.select} onChange={(e) => handleSelectS(e)}>
+                        <select className={styles.sel} onChange={(e) => handleSelectS(e)}>
                             <option id='sea' disabled hidden selected='select'>SEASON...</option>
                             <option value='Summer'>Summer</option>
                             <option value='Autumn'>Autumn</option>
@@ -160,9 +171,9 @@ export default function ActivityCreate() {
                             <option value='Spring'>Spring</option>
                         </select>
                     </div>
-                    <div>
+                    <div className={styles.detail}>
                         {/* <label>COUNTRIES:</label> */}
-                        <select className={styles.select} onChange={(e) => handleSelect(e)}>
+                        <select className={styles.sel} name="country" onChange={(e) => handleSelect(e)}>
                             <option id='cou' disabled hidden selected='select'>COUNTRIES...</option>
                             {
                                 allCountries.map(e => {
@@ -172,20 +183,24 @@ export default function ActivityCreate() {
                                 })
                             }
                         </select>{!input.country.length && (
-                            <p>{errors.country}</p>
+                            <p className={styles.errors}>{errors.country}</p>
                         )}
 
 
                     </div>
                     <div>
-                        <button  className={styles.btn} type='submit'>CREATE ACTIVITY</button>
+                        <button className={styles.btn} type='submit'>Agregar</button>
                     </div>
-                    <div>
-                        {input.country.map(e =>
-                            <div>
-                                <p>{e}</p>
-                                <button onClick={() => handleDelete(e)}>x</button>
-                            </div>)}
+                    <div className={styles.countries}>
+                        {input.country.length < 7 ?
+                            input.country.map(e =>
+                                <div className={styles.country}>
+                                    <p>{e}</p>
+                                    <button className={styles.btnDelete} type="button" onClick={() => handleDelete(e)}>x</button>
+                                </div>)
+                            :
+                            <p>{input.country.length} paises seleccionados</p>
+                        }
 
                         {/* <ul><li>{input.country.map(e => e + " ,")}</li></ul>  */}
                     </div>
